@@ -34,6 +34,21 @@ Which should produce:
     [ 'This is an entry.',
       'Possibly composed of several sentences.' ]
 
+If you want word-level tokens, use:
+
+    console.log(tokenizer.getTokens());
+
+Yielding:
+
+    [ 'This',
+      'is',
+      'an',
+      'entry.' ]
+
+To get the second sentence, use:
+
+    console.log(tokenizer.getTokens(1));
+
 ## Also
 
 * [https://github.com/chrisumbel/natural](https://github.com/chrisumbel/natural)

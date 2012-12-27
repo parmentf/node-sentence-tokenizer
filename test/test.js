@@ -74,3 +74,67 @@ describe('Sentences token', function () {
     });
   });
 });
+
+describe('Word tokens', function() {
+  var tokenizer = new Tokenizer('François');
+  var entry = "Très bien ECTOR." +
+  " Je suis fort aise que tu m'écoutes." +
+  " Très!!!" +
+  " Appelle-moi François, si tu veux...";
+  tokenizer.setEntry(entry);
+  tokenizer.getSentences();
+  
+  describe('First sentence', function () {
+    var tokens = tokenizer.getTokens(0);
+    it('should give 3 tokens', function () {
+      assert.equal(tokens.length, 3);
+    });
+    it('should have these tokens', function () {
+      assert.equal(tokens[0], "Très");
+      assert.equal(tokens[1], "bien");
+      assert.equal(tokens[2], "{yourname}.");
+    });
+  });
+
+  describe('Second sentence', function () {
+    var tokens = tokenizer.getTokens(1);
+    it('should give 7 tokens', function () {
+      assert.equal(tokens.length, 7);
+    });
+    it('should have these tokens', function () {
+      assert.equal(tokens[0], "Je");
+      assert.equal(tokens[1], "suis");
+      assert.equal(tokens[2], "fort");
+      assert.equal(tokens[3], "aise");
+      assert.equal(tokens[4], "que");
+      assert.equal(tokens[5], "tu");
+      assert.equal(tokens[6], "m'écoutes.");
+    });
+  });
+
+  describe('Third sentence', function () {
+    var tokens = tokenizer.getTokens(2);
+    it('should give 1 token', function () {
+      assert.equal(tokens.length, 1);
+    });
+    it('should have this token', function () {
+      assert.equal(tokens[0], "Très!!!");
+    });
+  });
+
+  // Appelle-moi François, si tu veux...
+  describe('Fourth sentence', function () {
+    var tokens = tokenizer.getTokens(3);
+    it('should give 5 tokens', function () {
+      assert.equal(tokens.length, 5);
+    });
+    it('should have these tokens', function () {
+      assert.equal(tokens[0], "Appelle-moi");
+      assert.equal(tokens[1], "{myname},");
+      assert.equal(tokens[2], "si");
+      assert.equal(tokens[3], "tu");
+      assert.equal(tokens[4], "veux...");
+    });
+  });
+
+});
