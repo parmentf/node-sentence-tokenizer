@@ -9,6 +9,29 @@ Use [npm](http://npmjs.org):
     $ npm install sentence-tokenizer
 
 
+## How to
+
+Require the module:
+
+    var Tokenizer = require('sentence-tokenizer');
+
+Instanciate a tokenizer, with the name of the utterer:
+
+    var tokenizer = new Tokenizer('Chuck');
+
+Set the entry to work on:
+
+    tokenizer.setEntry("This is an entry. Possibly composed of several sentences.");
+
+Get the sentences:
+
+    console.log(tokenizer.getSentences());
+
+Which should produce:
+
+    [ 'This is an entry.',
+      'Possibly composed of several sentences.' ]
+
 ## Also
 
 * [https://github.com/chrisumbel/natural](https://github.com/chrisumbel/natural)
