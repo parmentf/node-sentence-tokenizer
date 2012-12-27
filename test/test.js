@@ -2,7 +2,7 @@
 /*global describe:true, it:true */
 "use strict";
 
-var debug = require('debug')('rwc:test');
+var debug = require('debug')('tokenizer:test');
 var assert = require('assert');
 
 var Tokenizer = require('../lib/tokenizer');
@@ -35,7 +35,22 @@ describe('Sentences token', function () {
   tokenizer.setEntry(entry);
   var sentences = tokenizer.getSentences();
   it("should get 4 sentences", function () {
-    debug("sentences",sentences);
     assert.equal(4, sentences.length);
+  });
+  it("should have the first sentence", function () {
+    assert.equal("Nous allons bien voir ce que ça donne!",
+      sentences[0]);
+  });
+  it("should have second sentence", function () {
+    assert.equal("N'est-ce pas ?",
+      sentences[1]);
+  });
+  it("should have third sentence", function () {
+    assert.equal("Et avec une URL en plus, c'est mieux: http://google.com.",
+      sentences[2]);
+  });
+  it("should have fourth sentence", function () {
+    assert.equal("Mais il nous manque encore un mail: gg@gggg.kk",
+      sentences[3]);
   });
 });
