@@ -13,7 +13,7 @@ describe('Tokenizer creations', function () {
 
     it('should use ECTOR as a default botname', 
       function() {
-        assert.equal('ECTOR', tokenizer.botname);
+        assert.equal(tokenizer.botname, 'ECTOR');
       });
   });
   describe('With specific botname', function () {
@@ -21,7 +21,7 @@ describe('Tokenizer creations', function () {
                                   'Achille');
 
     it('should use Achille as a botname', function() {
-      assert.equal('Achille', tokenizer.botname);
+      assert.equal(tokenizer.botname, 'Achille');
     });
   });
 });
@@ -36,23 +36,22 @@ describe('Sentences token', function () {
     tokenizer.setEntry(entry);
     var sentences = tokenizer.getSentences();
     it("should get 4 sentences", function () {
-      assert.equal(4, sentences.length);
+      assert.equal(sentences.length, 4);
     });
     it("should have the first sentence", function () {
-      assert.equal("Nous allons bien voir ce que ça donne!",
-        sentences[0]);
+      assert.equal(sentences[0],
+        "Nous allons bien voir ce que ça donne!");
     });
     it("should have second sentence", function () {
-      assert.equal("N'est-ce pas ?",
-        sentences[1]);
+      assert.equal(sentences[1], "N'est-ce pas ?");
     });
     it("should have third sentence", function () {
-      assert.equal("Et avec une URL en plus, c'est mieux: http://google.com.",
-        sentences[2]);
+      assert.equal(sentences[2],
+        "Et avec une URL en plus, c'est mieux: http://google.com.");
     });
     it("should have fourth sentence", function () {
-      assert.equal("Mais il nous manque encore un mail: gg@gggg.kk",
-        sentences[3]);
+      assert.equal(sentences[3],
+        "Mais il nous manque encore un mail: gg@gggg.kk");
     });    
   });
   describe('False end', function () {
@@ -60,7 +59,18 @@ describe('Sentences token', function () {
     tokenizer.setEntry(entry);
     var sentences = tokenizer.getSentences();
     it('should produce only 2 sentences', function () {
-      assert.equal(2, sentences.length);
+      assert.equal(sentences.length, 2);
+    });
+  });
+  describe('Names', function () {
+    var entry = "Salut ECTOR. Je m'appelle François.";
+    tokenizer.setEntry(entry);
+    var sentences = tokenizer.getSentences();
+    it('botname replaced', function () {
+      assert.equal(sentences[0], 'Salut {yourname}.');
+    });
+    it('username replaced', function () {
+      assert.equal(sentences[1], "Je m'appelle {myname}.");
     });
   });
 });
