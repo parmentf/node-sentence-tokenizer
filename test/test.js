@@ -11,13 +11,13 @@ describe('Tokenizer creations', function () {
   describe('No botname', function () {
     var tokenizer = new Tokenizer('François');
 
-    it('should use ECTOR as a default botname', 
+    it('should use ECTOR as a default botname',
       function() {
         assert.equal(tokenizer.botname, 'ECTOR');
       });
   });
   describe('With specific botname', function () {
-    var tokenizer = new Tokenizer('François', 
+    var tokenizer = new Tokenizer('François',
                                   'Achille');
 
     it('should use Achille as a botname', function() {
@@ -30,7 +30,7 @@ describe('Sentences token', function () {
   var tokenizer = new Tokenizer('François');
   describe('Classic', function () {
     var entry = "Nous allons bien voir ce que ça   donne!" +
-    " N'est-ce pas ? " + 
+    " N'est-ce pas ? " +
     " Et avec une URL en plus, c'est mieux: http://google.com." +
     " Mais il nous manque encore un mail: gg@gggg.kk";
     tokenizer.setEntry(entry);
@@ -52,7 +52,17 @@ describe('Sentences token', function () {
     it("should have fourth sentence", function () {
       assert.equal(sentences[3],
         "Mais il nous manque encore un mail: gg@gggg.kk");
-    });    
+    });
+  });
+  describe('Only one sentence', function () {
+    debug('Only one sentence!');
+    var entry = "Hello.";
+    tokenizer.setEntry(entry);
+    var sentences = tokenizer.getSentences();
+    it('should get one sentence', function () {
+      assert.equal(sentences.length, 1);
+      assert.equal(sentences[0], entry);
+    });
   });
   describe('False end', function () {
     var entry = "Bon sang ce n'est pas ça. Bon sang";
