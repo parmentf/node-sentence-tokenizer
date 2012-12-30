@@ -63,6 +63,9 @@ describe('Sentences token', function () {
       assert.equal(sentences.length, 1);
       assert.equal(sentences[0], entry);
     });
+    it('should set the sentence', function () {
+      assert.equal(tokenizer.sentences[0], entry);
+    });
   });
   describe('False end', function () {
     var entry = "Bon sang ce n'est pas ça. Bon sang";
