@@ -1,6 +1,6 @@
 {
   "name": "sentence-tokenizer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Tokenize paragraphs into sentences, and smaller tokens.",
   "main": "lib/tokenizer.js",
   "scripts": {

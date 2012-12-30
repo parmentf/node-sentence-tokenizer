@@ -57,6 +57,7 @@ describe('Sentences token', function () {
   describe('Only one sentence', function () {
     debug('Only one sentence!');
     var entry = "Hello.";
+    var tokenizer = new Tokenizer('François');
     tokenizer.setEntry(entry);
     var sentences = tokenizer.getSentences();
     it('should get one sentence', function () {
