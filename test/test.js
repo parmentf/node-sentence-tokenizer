@@ -54,6 +54,15 @@ describe('Sentences token', function () {
         "Mais il nous manque encore un mail: gg@gggg.kk");
     });
   });
+  describe('Two sentences', function () {
+    var entry = "Salut." +
+    " Hello.";
+    tokenizer.setEntry(entry);
+    var sentences = tokenizer.getSentences();
+    it("should get 2 sentences", function () {
+      assert.equal(sentences.length, 2);
+    });
+  });
   describe('Only one sentence', function () {
     debug('Only one sentence!');
     var entry = "Hello.";
