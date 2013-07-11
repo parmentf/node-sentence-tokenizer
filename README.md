@@ -1,5 +1,4 @@
-# Sentence Tokenizer
-[![Build Status](https://secure.travis-ci.org/parmentf/node-sentence-tokenizer.png)](http://travis-ci.org/parmentf/node-sentence-tokenizer)
+# Sentence Tokenizer [![Build Status](https://secure.travis-ci.org/parmentf/node-sentence-tokenizer.png)](http://travis-ci.org/parmentf/node-sentence-tokenizer) [![NPM version](https://badge.fury.io/js/sentence-tokenizer.png)](http://badge.fury.io/js/sentence-tokenizer)
 
 Tokenize paragraphs into sentences, and smaller tokens.
 
