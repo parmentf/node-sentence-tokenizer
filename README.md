@@ -6,46 +6,63 @@ Tokenize paragraphs into sentences, and smaller tokens.
 
 Use [npm](http://npmjs.org):
 
-    $ npm install sentence-tokenizer
-
+```bash
+npm install sentence-tokenizer
+```
 
 ## How to
 
 Require the module:
 
-    var Tokenizer = require('sentence-tokenizer');
+```js
+var Tokenizer = require('sentence-tokenizer');
+```
 
 Instanciate a tokenizer, with the name of the utterer:
 
-    var tokenizer = new Tokenizer('Chuck');
+```js
+var tokenizer = new Tokenizer('Chuck');
+```
 
 Set the entry to work on:
 
-    tokenizer.setEntry("This is an entry. Possibly composed of several sentences.");
+```js
+tokenizer.setEntry("This is an entry. Possibly composed of several sentences.");
+```
 
 Get the sentences:
 
-    console.log(tokenizer.getSentences());
+```js
+console.log(tokenizer.getSentences());
+```
 
 Which should produce:
 
-    [ 'This is an entry.',
-      'Possibly composed of several sentences.' ]
+```js
+[ 'This is an entry.',
+  'Possibly composed of several sentences.' ]
+```
 
 If you want word-level tokens, use:
 
-    console.log(tokenizer.getTokens());
+```js
+console.log(tokenizer.getTokens());
+```
 
 Yielding:
 
-    [ 'This',
-      'is',
-      'an',
-      'entry.' ]
+```js
+[ 'This',
+  'is',
+  'an',
+  'entry.' ]
+```
 
 To get the second sentence, use:
 
-    console.log(tokenizer.getTokens(1));
+```js
+console.log(tokenizer.getTokens(1));
+```
 
 ## Also
 
