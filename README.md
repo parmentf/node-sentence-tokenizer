@@ -70,6 +70,7 @@ console.log(tokenizer.getTokens(1));
 * [https://github.com/Floby/node-tokenizer](https://github.com/Floby/node-tokenizer)
 
 ## License
+
 (The MIT License)
 
 Copyright 2012 François Parmentier. All rights reserved.
