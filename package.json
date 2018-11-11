@@ -4,6 +4,7 @@
   "description": "Tokenize paragraphs into sentences, and smaller tokens.",
   "main": "lib/tokenizer.js",
   "scripts": {
+    "lint": "eslint lib",
     "test": "mocha",
     "test-w": "mocha -w"
   },
@@ -23,7 +24,7 @@
     "debug": "3.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
+    "eslint": "5.9.0",
     "mocha": "4.0.1"
   }
 }
