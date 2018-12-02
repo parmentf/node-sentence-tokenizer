@@ -15,7 +15,7 @@ npm install sentence-tokenizer
 Require the module:
 
 ```js
-var Tokenizer = require('sentence-tokenizer');
+var Tokenizer = require('sentence-tokenizer').Tokenizer;
 ```
 
 Instanciate a tokenizer, with the name of the utterer:
@@ -27,13 +27,13 @@ var tokenizer = new Tokenizer('Chuck');
 Set the entry to work on:
 
 ```js
-tokenizer.setEntry("This is an entry. Possibly composed of several sentences.");
+tokenizer.entry = "This is an entry. Possibly composed of several sentences.";
 ```
 
 Get the sentences:
 
 ```js
-console.log(tokenizer.getSentences());
+console.log(tokenizer.sentences);
 ```
 
 Which should produce:
