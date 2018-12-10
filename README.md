@@ -64,6 +64,13 @@ To get the second sentence, use:
 console.log(tokenizer.getTokens(1));
 ```
 
+## Warning
+
+As this package is made for a [conversational bot](https://github.com/parmentf/node-ector), the Tokenizer class get two parameters (`username` and `botname`), which have default values (`Guy`, and `ECTOR`).
+
+When these are present in the entry, they are replaced with `{botname}` and `{yourname}` respectively.
+If you don't want to use this functionality, pass two unlikely parameters (`kjsdfgiurbybuq`, for example).
+
 ## Also
 
 * [https://github.com/chrisumbel/natural](https://github.com/chrisumbel/natural)
