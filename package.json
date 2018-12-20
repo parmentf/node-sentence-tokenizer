@@ -6,7 +6,12 @@
   "scripts": {
     "lint": "eslint lib",
     "test": "mocha",
-    "test-w": "mocha -w"
+    "test:w": "mocha -w",
+    "build": "tsc",
+    "build:w":  "tsc --watch",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "homepage": "http://github.com/parmentf/node-sentence-tokenizer",
   "repository": {
@@ -24,7 +29,9 @@
     "debug": "4.1.0"
   },
   "devDependencies": {
+    "@types/node": "10.12.11",
     "eslint": "5.9.0",
-    "mocha": "5.2.0"
+    "mocha": "5.2.0",
+    "typescript": "3.2.1"
   }
 }

@@ -5,7 +5,7 @@
 var debug = require('debug')('tokenizer:test');
 var assert = require('assert');
 
-var Tokenizer = require('../lib/tokenizer');
+var Tokenizer = require('../lib/tokenizer').Tokenizer;
 
 describe('Tokenizer creations', function () {
   describe('No botname', function () {
@@ -35,8 +35,8 @@ describe('Sentences token', function () {
     " N'est-ce pas ? " +
     " Et avec une URL en plus, c'est mieux: http://google.com." +
     " Mais il nous manque encore un mail: gg@gggg.kk";
-    tokenizer.setEntry(entry);
-    var sentences = tokenizer.getSentences();
+    tokenizer.entry = entry;
+    var sentences = tokenizer.sentences;
 
     it("should get 4 sentences", function () {
       assert.equal(sentences.length, 4);
@@ -71,8 +71,8 @@ describe('Sentences token', function () {
   describe('Two sentences', function () {
     var entry = "Salut." +
     " Hello.";
-    tokenizer.setEntry(entry);
-    var sentences = tokenizer.getSentences();
+    tokenizer.entry = entry;
+    var sentences = tokenizer.sentences;
 
     it("should get 2 sentences", function () {
       assert.equal(sentences.length, 2);
@@ -83,8 +83,8 @@ describe('Sentences token', function () {
     debug('Only one sentence!');
     var entry = "Hello.";
     var tokenizer2 = new Tokenizer('François');
-    tokenizer2.setEntry(entry);
-    var sentences = tokenizer2.getSentences();
+    tokenizer2.entry = entry;
+    var sentences = tokenizer2.sentences;
 
     it('should get one sentence', function () {
       assert.equal(sentences.length, 1);
@@ -97,8 +97,8 @@ describe('Sentences token', function () {
 
   describe('Empty sentence', function () {
     var entry = "    ";
-    tokenizer.setEntry(entry);
-    var sentences = tokenizer.getSentences();
+    tokenizer.entry = entry;
+    var sentences = tokenizer.sentences;
 
     it('should handle gracefully', function () {
       assert.equal(sentences.length, 0);
@@ -107,8 +107,8 @@ describe('Sentences token', function () {
 
   describe('False end', function () {
     var entry = "Bon sang ce n'est pas ça. Bon sang";
-    tokenizer.setEntry(entry);
-    var sentences = tokenizer.getSentences();
+    tokenizer.entry = entry;
+    var sentences = tokenizer.sentences;
 
     it('should produce only 2 sentences', function () {
       assert.equal(sentences.length, 2);
@@ -117,8 +117,8 @@ describe('Sentences token', function () {
 
   describe('Names', function () {
     var entry = "Salut ECTOR. Je m'appelle François.";
-    tokenizer.setEntry(entry);
-    var sentences = tokenizer.getSentences();
+    tokenizer.entry = entry;
+    var sentences = tokenizer.sentences;
 
     it('botname replaced', function () {
       assert.equal(sentences[0], 'Salut {yourname}.');
@@ -136,8 +136,8 @@ describe('Word tokens', function() {
   " Je suis fort aise que tu m'écoutes." +
   " Très!!!" +
   " Appelle-moi François, si tu veux...";
-  tokenizer.setEntry(entry);
-  tokenizer.getSentences();
+  tokenizer.entry = entry;
+  var sentences = tokenizer.sentences; // eslint-disable-line no-unused-vars
 
   describe('First sentence', function () {
     var tokens = tokenizer.getTokens(0);
